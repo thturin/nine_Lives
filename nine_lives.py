@@ -1,9 +1,5 @@
 """Project No. 3 - Nine Lives
 
-adding levels of difficult
-level 1 - word length 5 and less
-level 2 - word length 6 -9
-level 3 -word length 10 and up
 
 
 """
