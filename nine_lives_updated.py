@@ -1,25 +1,14 @@
-"""Project No. 3 - Nine Lives
-
-adding levels of difficult
-level 1 - word length 5 and less
-level 2 - word length 6 -9
-level 3 -word length 10 and up
-
-
-"""
+"""Project No. 3 - Nine Lives"""
 import random
 
 lives = 9
-words = ['syndrome','matrix','thriftless','galaxy','megahertz','luxury','brooklyn','curacao','xylophone']
+words = ['cat','syndrome','matrix','thriftless','galaxy','megahertz','luxury','brooklyn','curacao','xylophone']
 secret_word = random.choice(words) # uses random module's choice() function
 clue = list() # or you could write it as clue = list['?','?','?','?','?']
-for i in secret_word:
-    clue.append('?')
 
 
 heart_symbol = u'\u2764'
 guessed_word_correctly = False
-print("Welcome to Nine Lives"+heart_symbol)
 
 def update_clue(guessed_letter, secret_word, clue):
     index = 0
@@ -28,7 +17,22 @@ def update_clue(guessed_letter, secret_word, clue):
             clue[index] = guessed_letter
 
         index += 1
-#########################################################
+#############################################################################################################
+difficulty = input('Choose your level of difficulty: Enter 1 (beginner), 2 (intermediate) and 3 (expert)')
+new_words = list()
+
+for x in words:
+    if difficulty=='1' and len(x)<6:
+        new_words.append(x)
+    if difficulty=='2'and len(x)>5 and len(x)<9:
+        new_words.append(x)
+    if difficulty=='3' and len(x)>8:
+        new_words.append(x)
+
+secret_word = random.choice(new_words)
+
+for i in secret_word: ##move this
+    clue.append('?')
 
 while lives > 0:
     print(clue)
